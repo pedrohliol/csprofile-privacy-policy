@@ -1,37 +1,315 @@
-Privacy Policy — CSProfile
-Last updated: May 2026
-Overview
-CSProfile is a browser extension that reads public Steam profile data and sends it to a user-configured Discord webhook. We are committed to protecting your privacy.
-Data We Collect
-CSProfile does not collect, store, transmit or share any personal data with the extension developer or any third party.
-The only data stored by the extension is:
+<!DOCTYPE html>
 
-Your Discord webhook URL — stored locally in your browser using chrome.storage.local. It never leaves your device except when used to send a message to your own Discord server.
-Your extension preferences (which fields to include in the embed) — stored locally in your browser.
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSProfile - Privacy Policy</title>
 
-Data We Access
-The extension reads publicly available information from Steam profile pages you visit:
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-Display name
-Avatar image
-SteamID64
-CS2 statistics (hours played, kills, K/D, headshot %)
-Currently playing game
+<style>
+:root{
+    --bg:#0f1117;
+    --card:#171b24;
+    --card-hover:#1d2330;
+    --text:#f5f7fa;
+    --muted:#a6afc3;
+    --border:#2a3142;
+    --accent:#ffd54a;
+}
 
-This data is only used to build the Discord embed at the moment you click "Send". It is never stored or transmitted elsewhere.
-Third-Party Services
-When you load a Steam profile, the extension contacts the following services:
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-Cloudflare Workers (workers.dev) — a relay used to fetch CS2 stats, FACEIT and Premier rank from Steam and FACEIT APIs. No personally identifiable information is sent; only the SteamID64 or vanity URL of the profile being viewed.
-Steam API — to retrieve public player stats.
-FACEIT API — to retrieve public FACEIT rank data.
-Discord — only when you click "Send to Discord", the embed payload is sent directly to the webhook URL you configured.
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+}
 
-Permissions Justification
-PermissionReasonactiveTabTo read the Steam profile page currently openstorageTo save your webhook URL and preferences locallyscriptingTo inject the stats panel into Steam profile pagestabsTo detect whether the active tab is a Steam profile
-Children's Privacy
-This extension is not directed at children under 13. We do not knowingly collect data from children.
-Changes to This Policy
-If this policy changes, the updated version will be published at this same URL with a new date.
-Contact
-If you have any questions, open an issue at the extension's repository or contact the developer directly.
+.container{
+    max-width:950px;
+    margin:auto;
+    padding:50px 25px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.logo{
+    width:90px;
+    height:90px;
+    margin:0 auto 20px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#ffd54a,#ffbf00);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+    font-weight:700;
+    color:#111;
+    box-shadow:0 0 25px rgba(255,213,74,.25);
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:var(--muted);
+    font-size:15px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:28px;
+    margin-bottom:22px;
+}
+
+.card:hover{
+    background:var(--card-hover);
+}
+
+h2{
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+p{
+    color:var(--muted);
+}
+
+ul{
+    margin-top:12px;
+    padding-left:22px;
+}
+
+li{
+    color:var(--muted);
+    margin-bottom:8px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+th{
+    background:#202736;
+    color:white;
+}
+
+th,td{
+    border:1px solid var(--border);
+    padding:14px;
+    text-align:left;
+}
+
+td{
+    color:var(--muted);
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(255,213,74,.12);
+    color:var(--accent);
+    border:1px solid rgba(255,213,74,.25);
+    border-radius:999px;
+    padding:5px 12px;
+    font-size:13px;
+    margin-bottom:12px;
+}
+
+.footer{
+    text-align:center;
+    color:var(--muted);
+    margin-top:40px;
+    font-size:14px;
+}
+
+a{
+    color:var(--accent);
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+```
+<div class="hero">
+    <div class="logo">CS</div>
+    <h1>CSProfile</h1>
+    <p class="subtitle">
+        Privacy Policy • Last updated May 2026
+    </p>
+</div>
+
+<div class="card">
+    <div class="badge">Overview</div>
+    <p>
+        CSProfile is a browser extension that reads public Steam profile data
+        and allows users to send profile information to their own Discord
+        server through a configured webhook.
+    </p>
+    <br>
+    <p>
+        We do not collect, store, sell, or share personal data with the
+        extension developer or any third party.
+    </p>
+</div>
+
+<div class="card">
+    <div class="badge">Stored Data</div>
+    <h2>What We Store</h2>
+
+    <ul>
+        <li>
+            Discord webhook URL (stored locally using chrome.storage.local)
+        </li>
+        <li>
+            Extension preferences and configuration options
+        </li>
+    </ul>
+
+    <br>
+
+    <p>
+        This information remains on your device and is never transmitted
+        to the developer.
+    </p>
+</div>
+
+<div class="card">
+    <div class="badge">Accessed Data</div>
+    <h2>Steam Information</h2>
+
+    <p>
+        When viewing public Steam profiles, CSProfile may access:
+    </p>
+
+    <ul>
+        <li>Display Name</li>
+        <li>Avatar Image</li>
+        <li>SteamID64</li>
+        <li>CS2 Statistics</li>
+        <li>Current Game Status</li>
+    </ul>
+
+    <br>
+
+    <p>
+        This information is processed temporarily and only for generating
+        the Discord embed requested by the user.
+    </p>
+</div>
+
+<div class="card">
+    <div class="badge">Third-Party Services</div>
+    <h2>Services Used</h2>
+
+    <ul>
+        <li>
+            <strong>Cloudflare Workers</strong> — Used as a relay for
+            Steam and FACEIT public data requests.
+        </li>
+
+        <li>
+            <strong>Steam API</strong> — Retrieves public Steam profile
+            and statistics data.
+        </li>
+
+        <li>
+            <strong>FACEIT API</strong> — Retrieves public FACEIT rank
+            information.
+        </li>
+
+        <li>
+            <strong>Discord</strong> — Receives embed messages only when
+            the user explicitly clicks "Send to Discord".
+        </li>
+    </ul>
+</div>
+
+<div class="card">
+    <div class="badge">Permissions</div>
+    <h2>Why Permissions Are Required</h2>
+
+    <table>
+        <tr>
+            <th>Permission</th>
+            <th>Purpose</th>
+        </tr>
+
+        <tr>
+            <td>activeTab</td>
+            <td>Read the currently open Steam profile page.</td>
+        </tr>
+
+        <tr>
+            <td>storage</td>
+            <td>Store user preferences locally.</td>
+        </tr>
+
+        <tr>
+            <td>scripting</td>
+            <td>Inject the CSProfile interface into Steam pages.</td>
+        </tr>
+
+        <tr>
+            <td>tabs</td>
+            <td>Detect whether the current tab is a Steam profile.</td>
+        </tr>
+    </table>
+</div>
+
+<div class="card">
+    <div class="badge">Children's Privacy</div>
+    <p>
+        CSProfile is not directed toward children under the age of 13.
+        We do not knowingly collect information from children.
+    </p>
+</div>
+
+<div class="card">
+    <div class="badge">Policy Updates</div>
+    <p>
+        Any future updates to this Privacy Policy will be published on
+        this page together with a revised update date.
+    </p>
+</div>
+
+<div class="card">
+    <div class="badge">Contact</div>
+    <p>
+        Questions or concerns can be submitted through the project's
+        GitHub repository or by contacting the developer directly.
+    </p>
+</div>
+
+<div class="footer">
+    © 2026 CSProfile • Privacy & Transparency
+</div>
+```
+
+</div>
+
+</body>
+</html>
